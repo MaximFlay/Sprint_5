@@ -22,6 +22,7 @@ class TestStellarBurgersRegistration:
         assert reg_text == 'Вход'
         driver.quit()
 
+
     def test_incorrect_password(self,driver): # Ошибка некорректного пароля
         email = Constants.EMAIL
         driver.find_element(*Locators.LOGIN_TO_ACCOUNT_BUTTON).click()
