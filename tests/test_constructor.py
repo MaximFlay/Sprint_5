@@ -1,24 +1,31 @@
-import time
-
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
 from locators import Locators
-from constants import Constants
-from tests.locators import Message
-from selenium.webdriver.common.by import By
+from locators import Message
 
 
-class TestConstructor:
-    def test_click_sauce(self ,driver): # Переход к разделу Соусы
-        driver.find_element(*Locators.CONSTRUCTOR_SAUSE).click()
-        reg_text = WebDriverWait(driver, 4).until(EC.visibility_of_element_located(Message.TEXT_SAUSE)).text
+class TestSouse:
+    def test_transition_sauce(self, open_home_page, back_to_home_page): # Переход к разделу Соусы
+        open_home_page.find_element(*Locators.CONSTRUCTOR_SAUSE).click()
+        reg_text = WebDriverWait(open_home_page, 4).until(EC.visibility_of_element_located(Message.TEXT_SAUSE)).text
         assert reg_text == 'Соусы'
-        driver.quit()
 
-    def test_click_filings(self,driver):  #Переход к разделу Начинки
-        driver.find_element(*Locators.CONSTRUCTOR_FILLINGS).click()
-        reg_text = WebDriverWait(driver, 3).until(
-            EC.visibility_of_element_located(Locators.CONSTRUCTOR_FILLINGS)).text
+
+class TestFillings:
+    def test_transition_filings(self, open_home_page, back_to_home_page):  #Переход к разделу Начинки
+        open_home_page.find_element(*Locators.CONSTRUCTOR_FILLINGS).click()
+        reg_text = WebDriverWait(open_home_page, 3).until(EC.visibility_of_element_located(Locators.CONSTRUCTOR_FILLINGS)).text
         assert reg_text == 'Начинки'
-        driver.quit()
+
+
+class TestRolls:
+    def test_transition_rolls(self, open_home_page, back_to_home_page): # Переход к разделу Булки
+        open_home_page.find_element(*Locators.CONSTRUCTOR_FILLINGS).click()
+        WebDriverWait(open_home_page, 3).until(EC.visibility_of_element_located(Locators.CONSTRUCTOR_FILLINGS))
+        open_home_page.find_element(*Locators.CONSTRUCTOR_BUNS).click()
+        reg_text = WebDriverWait(open_home_page, 3).until(EC.visibility_of_element_located(Locators.CONSTRUCTOR_BUNS)).text
+        assert reg_text == 'Булки'
+
+
 

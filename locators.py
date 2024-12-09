@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 class Locators:
-    PERSONAL_ACCOUNT_BUTTON = (By.XPATH, "// *[text() = 'Личный Кабинет']") #Кнопка Личный кабинет
+    PERSONAL_ACCOUNT_BUTTON = (By.XPATH, "//*[text() = 'Личный Кабинет']") #Кнопка Личный кабинет
     PERSONAL_ACCOUNT = (By.XPATH, "//a[.='Профиль']") # Локатор личного кабинета
     LOGIN_TO_ACCOUNT_BUTTON = (By.XPATH,"//*[.='Войти в аккаунт']") #Кнопка "Войти в акккаунт" вход на страницу авторизации
     REG_BUTTON_NEW = (By.XPATH,"//*[text()='Зарегистрироваться']") #Кнопка "Зарегистрироваться" переход на страницу регистрации
